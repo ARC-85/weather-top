@@ -1,0 +1,44 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+
+#{menu id:"dashboard"/}
+
+#{list items:stations, as:'station'}
+<section class="ui segment">
+  <table class="ui fixed table">
+    <thead>
+    <tr>
+      <th>Station Details</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+  <h2 class="ui header">
+    ${station.name}
+  </h2>
+  <p> Latitude: ${station.lat} </p>
+  <p> Longitude: ${station.lng} </p>
+        <img class="ui mini image" src="/public/images/view.png"><a href="/stations/${station.id}"> View </a>
+      </td>
+  <td>
+    <a href="/dashboard/deletestation/${station.id}" class="ui tiny red button">Delete Station</a>
+  </td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+#{/list}
+
+<form class="ui stacked segment form" action="/dashboard/addstation" method="POST">
+  <div class="field">
+    <label>Name</label>
+    <input placeholder="Name" type="text" name="name">
+    <label>Latitude</label>
+    <input placeholder="Latitude" type="text" name="lat">
+    <label>Longitude</label>
+    <input placeholder="Longitude" type="text" name="lng">
+  </div>
+  <button class="ui blue submit button">Add Station</button>
+</form>

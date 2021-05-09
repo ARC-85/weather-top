@@ -1,0 +1,70 @@
+#{extends 'main.html' /}
+#{set title:'Station' /}
+
+#{menu id:"${station.name} Station"/}
+<section class="ui segment ">
+<div class="ui five column grid">
+    <div class="black column">
+        <h1>
+            ${station.name}
+        </h1>
+    </div>
+    <div class="column">
+        <img class="ui small centered image" src="/public/images/weather.png">
+        <h1>
+            Weather
+        </h1>
+        <h3>${station.weatherType()}</h3>
+
+    </div>
+    <div class="column">
+        <img class="ui small centered image" src="/public/images/temperature.png">
+        <h1>
+            Temperature
+        </h1>
+        <h3>${station.celsius()}</h3>
+        <h3>${station.fahrenheit()}</h3>
+    </div>
+    <div class="column">
+        <img class="ui small centered image" src="/public/images/wind.png">
+        <h1>
+            Wind
+        </h1>
+        <h3>${station.windBeaufort()}</h3>
+        <h3>${station.windDirection()}</h3>
+        <h3>${station.windChill()}</h3>
+    </div>
+    <div class="column">
+        <img class="ui small centered image" src="/public/images/pressure.png">
+        <h1>
+            Pressure
+        </h1>
+        <h3>${station.pressure()}</h3>
+    </div>
+</div>
+</section>
+
+<section class="ui segment">
+    <h2 class="ui header">
+        ${station.name}
+    </h2>
+    #{listreadings station:station /}
+</section>
+
+<section class="ui segment ">
+<form class="ui stacked equal width form" action="/stations/${station.id}/addreading" method="POST">
+    <div class="field">
+        <label>Code</label>
+        <input placeholder="Code" type="text" name="code">
+        <label>Temperature</label>
+        <input placeholder="Temperature" type="text" name="temperature">
+        <label>Wind Speed</label>
+        <input placeholder="Wind Speed" type="text" name="windSpeed">
+        <label>Wind Direction</label>
+        <input placeholder="Wind Direction" type="text" name="windDirection">
+        <label>Pressure</label>
+        <input placeholder="Pressure" type="text" name="pressure">
+    </div>
+    <button class="ui blue submit button">Add Reading</button>
+</form>
+</section>
