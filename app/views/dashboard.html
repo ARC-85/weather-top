@@ -15,26 +15,24 @@
     <tbody>
     <tr>
       <td>
-  <h2 class="ui header">
-    ${station.name}
-  </h2>
-  <p> Latitude: ${station.lat} </p>
-  <p> Longitude: ${station.lng} </p>
+        <h2 class="ui header">
+          ${station.name}
+        </h2>
+        <p> Latitude: ${station.lat} </p>
+        <p> Longitude: ${station.lng} </p>
         <a class = "ui icon button" href="/stations/${station.id}">
           <i class = "icon search"></i>
         </a>
       </td>
-  <td>
-    <a href="/dashboard/deletestation/${station.id}" class="ui tiny red button">Delete Station</a>
-  </td>
+      <td>
+        <a href="/dashboard/${member.id}/deletestation/${station.id}" class="ui tiny red button">Delete Station</a>
+      </td>
     </tr>
     </tbody>
   </table>
 </section>
 #{/list}
 
-<section class="ui segment">
-  <h2>Add Station</h2>
 <form class="ui stacked segment form" action="/dashboard/addstation" method="POST">
   <div class="field">
     <label>Name</label>
@@ -46,4 +44,3 @@
   </div>
   <button class="ui blue submit button">Add Station</button>
 </form>
-</section>

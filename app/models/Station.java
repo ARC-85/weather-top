@@ -2,9 +2,14 @@ package models;
 
 import play.db.jpa.Model;
 
+import javax.imageio.ImageIO;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +64,7 @@ public class Station extends Model
       return fahrenheit;
     }
     else {
-      return "No readings available.";
+      return "";
     }
   }
 
@@ -161,7 +166,7 @@ public class Station extends Model
         return "Even Breeze";
     }
     else {
-      return "No readings available.";
+      return "";
     }
   }
 
@@ -174,9 +179,88 @@ public class Station extends Model
       return windTemp;
     }
     else {
-      return "No readings available.";
+      return "";
     }
   }
+
+  public String minWind() {
+    if (readings.size() != 0) {
+      Reading minWind = readings.get(0);
+      for (Reading reading : readings) {
+        if (reading.getWind() < minWind.getWind())
+          minWind = reading;
+      }
+      String minimumWind = "Min wind: " + minWind.getWind() + " km/hr";
+      return minimumWind;
+    } else
+      return "";
+  }
+
+  public String maxWind() {
+    if (readings.size() != 0) {
+      Reading maxWind = readings.get(0);
+      for (Reading reading : readings) {
+        if (reading.getWind() > maxWind.getWind())
+          maxWind = reading;
+      }
+      String maximumWind = "Max wind: " + maxWind.getWind() + " km/hr";
+      return maximumWind;
+    } else
+      return "";
+  }
+
+  public String minTemp() {
+    if (readings.size() != 0) {
+      Reading minTemp = readings.get(0);
+      for (Reading reading : readings) {
+        if (reading.getTemp() < minTemp.getTemp())
+          minTemp = reading;
+      }
+      String minimumTemp = "Min temp: " + minTemp.getTemp() + " Celsius";
+      return minimumTemp;
+    } else
+      return "";
+  }
+
+  public String maxTemp() {
+    if (readings.size() != 0) {
+      Reading maxTemp = readings.get(0);
+      for (Reading reading : readings) {
+        if (reading.getTemp() > maxTemp.getTemp())
+          maxTemp = reading;
+      }
+      String maximumTemp = "Max temp: " + maxTemp.getTemp() + " Celsius";
+      return maximumTemp;
+    } else
+      return "";
+  }
+
+  public String minPress() {
+    if (readings.size() != 0) {
+      Reading minPress = readings.get(0);
+      for (Reading reading : readings) {
+        if (reading.getPressure() < minPress.getPressure())
+          minPress = reading;
+      }
+      String minimumPress = "Min pressure: " + minPress.getPressure() + " hPa";
+      return minimumPress;
+    } else
+      return "";
+  }
+
+  public String maxPress() {
+    if (readings.size() != 0) {
+      Reading maxPress = readings.get(0);
+      for (Reading reading : readings) {
+        if (reading.getPressure() > maxPress.getPressure())
+          maxPress = reading;
+      }
+      String maximumPress = "Max pressure: " + maxPress.getPressure() + " hPa";
+      return maximumPress;
+    } else
+      return "";
+  }
+
 
   private double toTwoDecimalPlaces(double num){
     return (int) (num *100 ) /100.0;

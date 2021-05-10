@@ -6,13 +6,17 @@
 GET     /                                           Start.index
 GET     /dashboard                                  Dashboard.index
 POST    /dashboard/addstation                       Dashboard.addStation
-GET     /dashboard/deletestation/{id}               Dashboard.deleteStation
+GET     /dashboard/{id}/deletestation/{stationid}   Dashboard.deleteStation
 GET     /admin                                      Admin.index
 GET     /about                                      About.index
 GET     /stations/{id}                              StationCtrl.index
 GET     /stations/{id}/deletereading/{readingid}    StationCtrl.deleteReading
 POST    /stations/{id}/addreading                   StationCtrl.addReading
-
+GET    /signup                                      Accounts.signup
+GET    /login                                       Accounts.login
+POST   /register                                    Accounts.register
+POST   /authenticate                                Accounts.authenticate
+GET    /logout                                      Accounts.logout
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

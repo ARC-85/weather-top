@@ -3,46 +3,53 @@
 
 #{menu id:"${station.name} Station"/}
 <section class="ui segment ">
-<div class="ui five column grid">
-    <div class="black column">
-        <h1>
-            ${station.name}
-        </h1>
-    </div>
-    <div class="column">
-        <img class="ui small centered image" src="/public/images/weather.png">
-        <h1>
-            Weather
-        </h1>
-        <h3>${station.weatherType()}</h3>
+    <div class="ui five column grid">
+        <div class="black column">
+            <h1>
+                ${station.name}
+            </h1>
+        </div>
+        <div class="column">
+            <img class="ui small centered image" src="/public/images/weather.png">
+            <h1>
+                Weather
+            </h1>
+            <h3>${station.weatherType()}</h3>
+            <img class="ui tiny centered image" src="/public/images/weather/${station.weatherType()}.png"}>
 
+        </div>
+        <div class="column">
+            <img class="ui small centered image" src="/public/images/temperature.png">
+            <h1>
+                Temperature
+            </h1>
+            <h3>${station.celsius()}</h3>
+            <h3>${station.fahrenheit()}</h3>
+            <h3>${station.minTemp()}</h3>
+            <h3>${station.maxTemp()}</h3>
+        </div>
+        <div class="column">
+            <img class="ui small centered image" src="/public/images/wind.png">
+            <h1>
+                Wind
+            </h1>
+            <h3>${station.windBeaufort()}</h3>
+            <h3>${station.windDirection()}</h3>
+            <img class="ui tiny centered image" src="/public/images/direction/${station.windDirection()}.png"}>
+            <h3>${station.windChill()}</h3>
+            <h3>${station.minWind()}</h3>
+            <h3>${station.maxWind()}</h3>
+        </div>
+        <div class="column">
+            <img class="ui small centered image" src="/public/images/pressure.png">
+            <h1>
+                Pressure
+            </h1>
+            <h3>${station.pressure()}</h3>
+            <h3>${station.minPress()}</h3>
+            <h3>${station.maxPress()}</h3>
+        </div>
     </div>
-    <div class="column">
-        <img class="ui small centered image" src="/public/images/temperature.png">
-        <h1>
-            Temperature
-        </h1>
-        <h3>${station.celsius()}</h3>
-        <h3>${station.fahrenheit()}</h3>
-    </div>
-    <div class="column">
-        <img class="ui small centered image" src="/public/images/wind.png">
-        <h1>
-            Wind
-        </h1>
-        <h3>${station.windBeaufort()}</h3>
-        <h3>${station.windDirection()}</h3>
-        <img class="ui tiny centered image" src="/public/images/direction/${station.windDirection()}.png"}>
-        <h3>${station.windChill()}</h3>
-    </div>
-    <div class="column">
-        <img class="ui small centered image" src="/public/images/pressure.png">
-        <h1>
-            Pressure
-        </h1>
-        <h3>${station.pressure()}</h3>
-    </div>
-</div>
 </section>
 
 <section class="ui segment">
@@ -53,22 +60,19 @@
 </section>
 
 <section class="ui segment ">
-    <h2>
-        Add Reading
-    </h2>
-<form class="ui stacked equal width form" action="/stations/${station.id}/addreading" method="POST">
-    <div class="field">
-        <label>Code</label>
-        <input placeholder="Code" type="text" name="code">
-        <label>Temperature</label>
-        <input placeholder="Temperature" type="text" name="temperature">
-        <label>Wind Speed</label>
-        <input placeholder="Wind Speed" type="text" name="windSpeed">
-        <label>Wind Direction</label>
-        <input placeholder="Wind Direction" type="text" name="windDirection">
-        <label>Pressure</label>
-        <input placeholder="Pressure" type="text" name="pressure">
-    </div>
-    <button class="ui blue submit button">Add Reading</button>
-</form>
+    <form class="ui stacked equal width form" action="/stations/${station.id}/addreading" method="POST">
+        <div class="field">
+            <label>Code</label>
+            <input placeholder="Code" type="text" name="code">
+            <label>Temperature</label>
+            <input placeholder="Temperature" type="text" name="temperature">
+            <label>Wind Speed</label>
+            <input placeholder="Wind Speed" type="text" name="windSpeed">
+            <label>Wind Direction</label>
+            <input placeholder="Wind Direction" type="text" name="windDirection">
+            <label>Pressure</label>
+            <input placeholder="Pressure" type="text" name="pressure">
+        </div>
+        <button class="ui blue submit button">Add Reading</button>
+    </form>
 </section>
