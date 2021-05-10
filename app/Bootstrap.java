@@ -11,6 +11,9 @@ public class Bootstrap extends Job
 {
   public void doJob()
   {
-    Fixtures.loadModels("data.yml");
+    if (Station.count() == 0)
+    {
+      Fixtures.loadModels("data.yml");
+    }
   }
 }
