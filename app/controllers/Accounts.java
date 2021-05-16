@@ -1,8 +1,11 @@
 package controllers;
 
 import models.Member;
+import models.Station;
 import play.Logger;
 import play.mvc.Controller;
+
+import java.util.List;
 
 public class Accounts extends Controller
 {
@@ -14,6 +17,15 @@ public class Accounts extends Controller
     public static void login()
     {
         render("login.html");
+    }
+
+
+    public static void index()
+    {
+        Logger.info("Rendering Profile");
+        Member member = Accounts.getLoggedInMember();
+        List<Station> stations = member.stations;
+        render("profile.html", member, stations);
     }
 
     public static void register(String firstname, String lastname, String email, String password)
@@ -55,5 +67,41 @@ public class Accounts extends Controller
             login();
         }
         return member;
+    }
+
+    public static void updateFirstName(String firstname)
+    {
+        Logger.info("Updating " + firstname);
+        Member member = Accounts.getLoggedInMember();
+        member.setFirstName(firstname);
+        member.save();
+        render("profile.html", member);
+    }
+
+    public static void updateLastName(String lastname)
+    {
+        Logger.info("Updating " + lastname);
+        Member member = Accounts.getLoggedInMember();
+        member.setLastName(lastname);
+        member.save();
+        render("profile.html", member);
+    }
+
+    public static void updateEmail(String email)
+    {
+        Logger.info("Updating " + email);
+        Member member = Accounts.getLoggedInMember();
+        member.setEmail(email);
+        member.save();
+        render("profile.html", member);
+    }
+
+    public static void updatePassword(String password)
+    {
+        Logger.info("Updating " + password);
+        Member member = Accounts.getLoggedInMember();
+        member.setPassword(password);
+        member.save();
+        render("profile.html", member);
     }
 }

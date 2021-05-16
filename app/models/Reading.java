@@ -1,6 +1,8 @@
 package models;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,19 +14,25 @@ import play.db.jpa.Model;
 @Entity
 public class Reading extends Model
 {
+  public Date time;
   public int code;
   public double temperature;
   public double windSpeed;
   public int pressure;
   public double windDirection;
 
-  public Reading(int code, double temperature, double windSpeed, double windDirection, int pressure)
+  public Reading(Date time, int code, double temperature, double windSpeed, double windDirection, int pressure)
   {
+    this.time = time;
     this.code = code;
     this.temperature = temperature;
     this.windSpeed = windSpeed;
     this.pressure = pressure;
     this.windDirection = windDirection;
+  }
+
+  public Date getTime() {
+    return time;
   }
 
   public int getCode() {

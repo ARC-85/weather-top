@@ -5,11 +5,11 @@
 
 #{list items:stations, as:'station'}
 <section class="ui segment">
-  <table class="ui fixed table">
+  <table class="ui celled padded table">
     <thead>
     <tr>
       <th>Station Details</th>
-      <th></th>
+      <th>Weather Details</th>
     </tr>
     </thead>
     <tbody>
@@ -23,9 +23,59 @@
         <a class = "ui icon button" href="/stations/${station.id}">
           <i class = "icon search"></i>
         </a>
+        <a href="/dashboard/${member.id}/deletestation/${station.id}" class="ui tiny red button">Delete Station</a>
+        <p>${station.latestReading()}</p>
       </td>
       <td>
-        <a href="/dashboard/${member.id}/deletestation/${station.id}" class="ui tiny red button">Delete Station</a>
+        <section class="ui segment ">
+          <div class="ui four column grid">
+            <div class="column">
+              <img class="ui small centered image" src="/public/images/weather.png">
+              <h1>
+                Weather
+              </h1>
+              <h3>${station.weatherType()}</h3>
+              <img class="ui tiny centered image" src="/public/images/weather/${station.weatherType()}.png"}>
+
+            </div>
+            <div class="column">
+              <img class="ui small centered image" src="/public/images/temperature.png">
+              <h1>
+                Temperature
+              </h1>
+              <h3>${station.celsius()}</h3>
+              <h3>${station.fahrenheit()}</h3>
+              <h3>${station.minTemp()}</h3>
+              <h3>${station.maxTemp()}</h3>
+              <img class="ui tiny centered image" src="/public/images/trends/${station.trendTemp()}.png"}>
+              <h5 class = "ui center aligned header">${station.trendTemp()}</h5>
+            </div>
+            <div class="column">
+              <img class="ui small centered image" src="/public/images/wind.png">
+              <h1>
+                Wind
+              </h1>
+              <h3>${station.windBeaufort()}</h3>
+              <h3>${station.windDirection()}</h3>
+              <h3>${station.windChill()}</h3>
+              <h3>${station.minWind()}</h3>
+              <h3>${station.maxWind()}</h3>
+              <img class="ui tiny centered image" src="/public/images/trends/${station.trendWind()}.png"}>
+              <h5 class = "ui center aligned header">${station.trendWind()}</h5>
+            </div>
+            <div class="column">
+              <img class="ui small centered image" src="/public/images/pressure.png">
+              <h1>
+                Pressure
+              </h1>
+              <h3>${station.pressure()}</h3>
+              <h3>${station.minPress()}</h3>
+              <h3>${station.maxPress()}</h3>
+              <img class="ui tiny centered image" src="/public/images/trends/${station.trendPressure()}.png"}>
+              <h5 class = "ui center aligned header">${station.trendPressure()}</h5>
+            </div>
+          </div>
+        </section>
       </td>
     </tr>
     </tbody>
@@ -33,8 +83,8 @@
 </section>
 #{/list}
 
+<h2>Add Station</h2>
 <form class="ui stacked segment form" action="/dashboard/addstation" method="POST">
-  <h2>Add Station</h2>
   <div class="field">
     <label>Name</label>
     <input placeholder="Name" type="text" name="name">

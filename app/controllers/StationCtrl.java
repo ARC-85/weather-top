@@ -1,5 +1,7 @@
 package controllers;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import models.Station;
@@ -19,7 +21,7 @@ public class StationCtrl extends Controller
     {
         Station station = Station.findById(id);
         Reading reading = Reading.findById(readingid);
-        Logger.info ("Removing" + reading.code);
+        Logger.info ("Removing Reading id = " + readingid);
         station.readings.remove(reading);
         station.save();
         reading.delete();
@@ -29,12 +31,12 @@ public class StationCtrl extends Controller
     public static void addReading(Long id, int code, double temperature, double windSpeed, double windDirection, int pressure)
     {
         Station station = Station.findById(id);
-        Reading readings = new Reading(code, temperature, windSpeed, windDirection, pressure);
+        Date time = new Date();
+        Reading readings = new Reading(time, code, temperature, windSpeed, windDirection, pressure);
         readings.save();
         Logger.info("Addint Reading" + code);
         station.readings.add(readings);
         station.save();
-        //redirect("/stations/${station.id}");
         render("station.html", station);
 
     }

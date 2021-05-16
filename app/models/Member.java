@@ -27,6 +27,7 @@ public class Member extends Model
         this.password = password;
     }
 
+
     public static Member findByEmail(String email)
     {
         return find("email", email).first();
@@ -35,5 +36,37 @@ public class Member extends Model
     public boolean checkPassword(String password)
     {
         return this.password.equals(password);
+    }
+
+    public String getFirstName() {
+        return firstname;
+    }
+
+    public String getLastName() {
+        return lastname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setFirstName(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastName(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

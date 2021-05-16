@@ -29,6 +29,10 @@ public class Station extends Model
     this.lng = lng;
   }
 
+  public String getName() {
+    return name;
+  }
+
   public String weatherType() {
     if (readings.size() !=0) {
       Reading currentReading = readings.get(readings.size() - 1);
@@ -261,6 +265,107 @@ public class Station extends Model
       return "";
   }
 
+  public String trendTemp() {
+    if (readings.size() != 0) {
+      if (readings.size() < 1) {
+        return "No Temp Trend";
+      }
+      if (readings.size() == 1) {
+        return "No Temp Trend";
+      } else if (readings.size() == 2) {
+        Reading firstReading = readings.get(readings.size() - 1);
+        Reading secondReading = readings.get(readings.size() - 2);
+        if (firstReading.getTemp() > secondReading.getTemp()) {
+          return "Increasing Temp Trend";
+        } else {
+          return "Decreasing Temp Trend";
+        }
+      } else if (readings.size() >= 3) {
+        Reading firstReading = readings.get(readings.size() - 1);
+        Reading secondReading = readings.get(readings.size() - 2);
+        Reading thirdReading = readings.get(readings.size() - 3);
+        if ((firstReading.getTemp() > secondReading.getTemp()) && (secondReading.getTemp() > thirdReading.getTemp())) {
+          return "Increasing Temp Trend";
+        } else if ((firstReading.getTemp() < secondReading.getTemp()) && (secondReading.getTemp() < thirdReading.getTemp())) {
+          return "Decreasing Temp Trend";
+        } else {
+          return "No Temp Trend";
+        }
+      }
+    }
+    return "No readings available.";
+  }
+
+  public String trendWind() {
+    if (readings.size() != 0) {
+      if (readings.size() < 1) {
+        return "No Wind Trend";
+      }
+      if (readings.size() == 1) {
+        return "No Wind Trend";
+      } else if (readings.size() == 2) {
+        Reading firstReading = readings.get(readings.size() - 1);
+        Reading secondReading = readings.get(readings.size() - 2);
+        if (firstReading.getWind() > secondReading.getWind()) {
+          return "Increasing Wind Trend";
+        } else {
+          return "Decreasing Wind Trend";
+        }
+      } else if (readings.size() >= 3) {
+        Reading firstReading = readings.get(readings.size() - 1);
+        Reading secondReading = readings.get(readings.size() - 2);
+        Reading thirdReading = readings.get(readings.size() - 3);
+        if ((firstReading.getWind() > secondReading.getWind()) && (secondReading.getWind() > thirdReading.getWind())) {
+          return "Increasing Wind Trend";
+        } else if ((firstReading.getWind() < secondReading.getWind()) && (secondReading.getWind() < thirdReading.getWind())) {
+          return "Decreasing Wind Trend";
+        } else {
+          return "No Wind Trend";
+        }
+      }
+    }
+    return "No readings available.";
+  }
+
+  public String trendPressure() {
+    if (readings.size() != 0) {
+      if (readings.size() < 1) {
+        return "No Pressure Trend";
+      }
+      if (readings.size() == 1) {
+        return "No Pressure Trend";
+      } else if (readings.size() == 2) {
+        Reading firstReading = readings.get(readings.size() - 1);
+        Reading secondReading = readings.get(readings.size() - 2);
+        if (firstReading.getPressure() > secondReading.getPressure()) {
+          return "Increasing Pressure Trend";
+        } else {
+          return "Decreasing Pressure Trend";
+        }
+      } else if (readings.size() >= 3) {
+        Reading firstReading = readings.get(readings.size() - 1);
+        Reading secondReading = readings.get(readings.size() - 2);
+        Reading thirdReading = readings.get(readings.size() - 3);
+        if ((firstReading.getPressure() > secondReading.getPressure()) && (secondReading.getPressure() > thirdReading.getPressure())) {
+          return "Increasing Pressure Trend";
+        } else if ((firstReading.getPressure() < secondReading.getPressure()) && (secondReading.getPressure() < thirdReading.getPressure())) {
+          return "Decreasing Pressure Trend";
+        } else {
+          return "No Pressure Trend";
+        }
+      }
+    }
+    return "No readings available.";
+  }
+
+  public String latestReading() {
+    if (readings.size() != 0) {
+      Reading firstReading = readings.get(readings.size() - 1);
+      String lastRead = "Last reading: " + firstReading.getTime();
+      return lastRead;
+    } else
+      return "";
+  }
 
   private double toTwoDecimalPlaces(double num){
     return (int) (num *100 ) /100.0;

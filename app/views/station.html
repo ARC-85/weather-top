@@ -27,6 +27,8 @@
             <h3>${station.fahrenheit()}</h3>
             <h3>${station.minTemp()}</h3>
             <h3>${station.maxTemp()}</h3>
+            <img class="ui tiny centered image" src="/public/images/trends/${station.trendTemp()}.png"}>
+            <h5 class = "ui center aligned header">${station.trendTemp()}</h5>
         </div>
         <div class="column">
             <img class="ui small centered image" src="/public/images/wind.png">
@@ -35,10 +37,11 @@
             </h1>
             <h3>${station.windBeaufort()}</h3>
             <h3>${station.windDirection()}</h3>
-            <img class="ui tiny centered image" src="/public/images/direction/${station.windDirection()}.png"}>
             <h3>${station.windChill()}</h3>
             <h3>${station.minWind()}</h3>
             <h3>${station.maxWind()}</h3>
+            <img class="ui tiny centered image" src="/public/images/trends/${station.trendWind()}.png"}>
+            <h5 class = "ui center aligned header">${station.trendWind()}</h5>
         </div>
         <div class="column">
             <img class="ui small centered image" src="/public/images/pressure.png">
@@ -48,6 +51,8 @@
             <h3>${station.pressure()}</h3>
             <h3>${station.minPress()}</h3>
             <h3>${station.maxPress()}</h3>
+            <img class="ui tiny centered image" src="/public/images/trends/${station.trendPressure()}.png"}>
+            <h5 class = "ui center aligned header">${station.trendPressure()}</h5>
         </div>
     </div>
 </section>

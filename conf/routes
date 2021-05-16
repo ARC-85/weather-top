@@ -17,6 +17,11 @@ GET    /login                                       Accounts.login
 POST   /register                                    Accounts.register
 POST   /authenticate                                Accounts.authenticate
 GET    /logout                                      Accounts.logout
+GET    /profile                                     Accounts.index
+POST    /profile/updatefirstname                    Accounts.updateFirstName
+POST    /profile/updatelastname                     Accounts.updateLastName
+POST    /profile/updateemail                        Accounts.updateEmail
+POST    /profile/updatepassword                     Accounts.updatePassword
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
