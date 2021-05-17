@@ -11,7 +11,7 @@
         </div>
         <div class="column">
             <img class="ui small centered image" src="/public/images/weather.png">
-            <h1>
+            <h1 class="ui purple header">
                 Weather
             </h1>
             <h3>${station.weatherType()}</h3>
@@ -20,7 +20,7 @@
         </div>
         <div class="column">
             <img class="ui small centered image" src="/public/images/temperature.png">
-            <h1>
+            <h1 class="ui blue header">
                 Temperature
             </h1>
             <h3>${station.celsius()}</h3>
@@ -32,7 +32,7 @@
         </div>
         <div class="column">
             <img class="ui small centered image" src="/public/images/wind.png">
-            <h1>
+            <h1 class="ui red header">
                 Wind
             </h1>
             <h3>${station.windBeaufort()}</h3>
@@ -45,7 +45,7 @@
         </div>
         <div class="column">
             <img class="ui small centered image" src="/public/images/pressure.png">
-            <h1>
+            <h1 class="ui pink header">
                 Pressure
             </h1>
             <h3>${station.pressure()}</h3>
@@ -57,26 +57,26 @@
     </div>
 </section>
 
-<section class="ui segment">
+<section class="ui inverted blue segment">
     <h2 class="ui header">
         ${station.name}
     </h2>
     #{listreadings station:station /}
 </section>
 
-<section class="ui segment ">
+<section class="ui inverted grey segment">
     <h2>Add Reading</h2>
     <form class="ui stacked equal width form" action="/stations/${station.id}/addreading" method="POST">
         <div class="field">
-            <label>Code</label>
+            <div class="ui teal label">Code</div>
             <input placeholder="Code" type="text" name="code">
-            <label>Temperature</label>
+            <div class="ui teal label">Temperature</div>
             <input placeholder="Temperature" type="text" name="temperature">
-            <label>Wind Speed</label>
+            <div class="ui teal label">Wind Speed</div>
             <input placeholder="Wind Speed" type="text" name="windSpeed">
-            <label>Wind Direction</label>
+            <div class="ui teal label">Wind Direction</div>
             <input placeholder="Wind Direction" type="text" name="windDirection">
-            <label>Pressure</label>
+            <div class="ui teal label">Pressure</div>
             <input placeholder="Pressure" type="text" name="pressure">
         </div>
         <button class="ui blue submit button">Add Reading</button>

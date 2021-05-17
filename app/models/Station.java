@@ -53,7 +53,7 @@ public class Station extends Model
       } else if (currentReading.getCode() == 800) {
         return "Thunder";
       } else
-        return "Fine";
+        return "Unrecognised code";
     }
     else {
       return "No readings available.";
