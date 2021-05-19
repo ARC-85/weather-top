@@ -5,96 +5,101 @@
 
 #{list items:stations, as:'station'}
 <section class="ui segment">
-  <table class="ui celled padded table">
-    <thead class="ui black header">
-    <tr>
-      <th>Station Details</th>
-      <th>Weather Details</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td class="ui black column">
-        <h2 class="ui inverted header">
-          ${station.name}
-        </h2>
-        <p> Latitude: ${station.lat} </p>
-        <p> Longitude: ${station.lng} </p>
-        <a class = "ui icon button" href="/stations/${station.id}">
-          <i class = "icon search"></i>
-        </a>
-        <a href="/dashboard/${member.id}/deletestation/${station.id}" class="ui tiny red button">Delete Station</a>
-        <p> </p>
-        <p>${station.latestReading()}</p>
-      </td>
-      <td>
-        <section class="ui segment ">
-          <div class="ui four column grid">
-            <div class="column">
-              <img class="ui small centered image" src="/public/images/weather.png">
-              <h1 class="ui purple header">
-                Weather
-              </h1>
-              <h3>${station.weatherType()}</h3>
-              <img class="ui tiny centered image" src="/public/images/weather/${station.weatherType()}.png"}>
+    <table class="ui celled padded table">
+        <thead class="ui black header">
+        <tr>
+            <th>Station Details</th>
+            <th>Weather Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="ui black column">
+                <h2 class="ui inverted header">
+                    ${station.name}
+                </h2>
+                <p> Latitude: ${station.lat} </p>
+                <p> Longitude: ${station.lng} </p>
+                <a class="ui icon button" href="/stations/${station.id}">
+                    <i class="icon search"></i>
+                </a>
+                <a href="/dashboard/${member.id}/deletestation/${station.id}" class="ui tiny red button">Delete
+                    Station</a>
+                <p></p>
+                <p>${station.latestReading()}</p>
+            </td>
+            <td>
+                <section class="ui segment ">
+                    <div class="ui four column grid">
+                        <div class="column">
+                            <img class="ui small centered image" src="/public/images/weather.png">
+                            <h1 class="ui purple header">
+                                Weather
+                            </h1>
+                            <h3>${station.weatherType()}</h3>
+                            <img class="ui tiny centered image"
+                                 src="/public/images/weather/${station.weatherType()}.png" }>
 
-            </div>
-            <div class="column">
-              <img class="ui small centered image" src="/public/images/temperature.png">
-              <h1 class="ui blue header">
-                Temperature
-              </h1>
-              <h3>${station.celsius()}</h3>
-              <h3>${station.fahrenheit()}</h3>
-              <h3>${station.minTemp()}</h3>
-              <h3>${station.maxTemp()}</h3>
-              <img class="ui tiny centered image" src="/public/images/trends/${station.trendTemp()}.png"}>
-              <h5 class = "ui center aligned header">${station.trendTemp()}</h5>
-            </div>
-            <div class="column">
-              <img class="ui small centered image" src="/public/images/wind.png">
-              <h1 class="ui red header">
-                Wind
-              </h1>
-              <h3>${station.windBeaufort()}</h3>
-              <h3>${station.windDirection()}</h3>
-              <h3>${station.windChill()}</h3>
-              <h3>${station.minWind()}</h3>
-              <h3>${station.maxWind()}</h3>
-              <img class="ui tiny centered image" src="/public/images/trends/${station.trendWind()}.png"}>
-              <h5 class = "ui center aligned header">${station.trendWind()}</h5>
-            </div>
-            <div class="column">
-              <img class="ui small centered image" src="/public/images/pressure.png">
-              <h1 class="ui pink header">
-                Pressure
-              </h1>
-              <h3>${station.pressure()}</h3>
-              <h3>${station.minPress()}</h3>
-              <h3>${station.maxPress()}</h3>
-              <img class="ui tiny centered image" src="/public/images/trends/${station.trendPressure()}.png"}>
-              <h5 class = "ui center aligned header">${station.trendPressure()}</h5>
-            </div>
-          </div>
-        </section>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+                        </div>
+                        <div class="column">
+                            <img class="ui small centered image" src="/public/images/temperature.png">
+                            <h1 class="ui blue header">
+                                Temperature
+                            </h1>
+                            <h3>${station.celsius()}</h3>
+                            <h3>${station.fahrenheit()}</h3>
+                            <h3>${station.minTemp()}</h3>
+                            <h3>${station.maxTemp()}</h3>
+                            <img class="ui tiny centered image" src="/public/images/trends/${station.trendTemp()}.png"
+                                 }>
+                            <h5 class="ui center aligned header">${station.trendTemp()}</h5>
+                        </div>
+                        <div class="column">
+                            <img class="ui small centered image" src="/public/images/wind.png">
+                            <h1 class="ui red header">
+                                Wind
+                            </h1>
+                            <h3>${station.windBeaufort()}</h3>
+                            <h3>${station.windDirection()}</h3>
+                            <h3>${station.windChill()}</h3>
+                            <h3>${station.minWind()}</h3>
+                            <h3>${station.maxWind()}</h3>
+                            <img class="ui tiny centered image" src="/public/images/trends/${station.trendWind()}.png"
+                                 }>
+                            <h5 class="ui center aligned header">${station.trendWind()}</h5>
+                        </div>
+                        <div class="column">
+                            <img class="ui small centered image" src="/public/images/pressure.png">
+                            <h1 class="ui pink header">
+                                Pressure
+                            </h1>
+                            <h3>${station.pressure()}</h3>
+                            <h3>${station.minPress()}</h3>
+                            <h3>${station.maxPress()}</h3>
+                            <img class="ui tiny centered image"
+                                 src="/public/images/trends/${station.trendPressure()}.png" }>
+                            <h5 class="ui center aligned header">${station.trendPressure()}</h5>
+                        </div>
+                    </div>
+                </section>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </section>
 #{/list}
 
 <section class="ui inverted grey segment">
-<h2>Add Station</h2>
-<form class="ui stacked segment form" action="/dashboard/addstation" method="POST">
-  <div class="field">
-    <div class="ui teal label">Name</div>
-    <input placeholder="Name" type="text" name="name">
-    <div class="ui teal label">Latitude</div>
-    <input placeholder="Latitude" type="text" name="lat">
-    <div class="ui teal label">Longitude</div>
-    <input placeholder="Longitude" type="text" name="lng">
-  </div>
-  <button class="ui blue submit button">Add Station</button>
-</form>
+    <h2>Add Station</h2>
+    <form class="ui stacked segment form" action="/dashboard/addstation" method="POST">
+        <div class="field">
+            <div class="ui teal label">Name</div>
+            <input placeholder="Name" type="text" name="name">
+            <div class="ui teal label">Latitude</div>
+            <input placeholder="Latitude" type="text" name="lat">
+            <div class="ui teal label">Longitude</div>
+            <input placeholder="Longitude" type="text" name="lng">
+        </div>
+        <button class="ui blue submit button">Add Station</button>
+    </form>
 </section>

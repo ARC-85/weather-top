@@ -3,31 +3,31 @@
 # ~~~~
 
 # Home page
-GET     /                                           Start.index
-GET     /dashboard                                  Dashboard.index
-POST    /dashboard/addstation                       Dashboard.addStation
-GET     /dashboard/{id}/deletestation/{stationid}   Dashboard.deleteStation
-GET     /admin                                      Admin.index
-GET     /about                                      About.index
-GET     /stations/{id}                              StationCtrl.index
-GET     /stations/{id}/deletereading/{readingid}    StationCtrl.deleteReading
-POST    /stations/{id}/addreading                   StationCtrl.addReading
-GET    /signup                                      Accounts.signup
-GET    /login                                       Accounts.login
-POST   /register                                    Accounts.register
-POST   /authenticate                                Accounts.authenticate
-GET    /logout                                      Accounts.logout
-GET    /profile                                     Accounts.index
-POST    /profile/updatefirstname                    Accounts.updateFirstName
-POST    /profile/updatelastname                     Accounts.updateLastName
-POST    /profile/updateemail                        Accounts.updateEmail
-POST    /profile/updatepassword                     Accounts.updatePassword
+GET         /                                                Start.index
+GET         /dashboard                                       Dashboard.index
+POST        /dashboard/addstation                            Dashboard.addStation
+GET         /dashboard/{id}/deletestation/{stationid}        Dashboard.deleteStation
+GET         /admin                                           Admin.index
+GET         /about                                           About.index
+GET         /stations/{id}                                   StationCtrl.index
+GET         /stations/{id}/deletereading/{readingid}         StationCtrl.deleteReading
+POST        /stations/{id}/addreading                        StationCtrl.addReading
+GET         /signup                                          Accounts.signup
+GET         /login                                           Accounts.login
+POST        /register                                        Accounts.register
+POST        /authenticate                                    Accounts.authenticate
+GET         /logout                                          Accounts.logout
+GET         /profile                                         Accounts.index
+POST        /profile/updatefirstname                         Accounts.updateFirstName
+POST        /profile/updatelastname                          Accounts.updateLastName
+POST        /profile/updateemail                             Accounts.updateEmail
+POST        /profile/updatepassword                          Accounts.updatePassword
 
 # Ignore favicon requests
-GET     /favicon.ico                            404
+GET         /favicon.ico                            404
 
 # Map static resources from the /app/public folder to the /public path
-GET     /public/                                staticDir:public
+GET         /public/                                         staticDir:        public
 
 # Catch all
-*       /{controller}/{action}                  {controller}.{action}
+*       /{controller}/{action}                  {            controller}.{        action}
