@@ -12,6 +12,8 @@
             <th>Code</th>
             <th>Temperature</th>
             <th>Wind Speed</th>
+            <th>Pressure</th>
+            <th>Time</th>
         </tr>
         </thead>
         <tbody>
@@ -31,6 +33,83 @@
             </td>
             <td>
                 ${reading.pressure}
+            </td>
+            <td>
+                ${reading.time}
+            </td>
+        </tr>
+
+        #{/list}
+        </tbody>
+    </table>
+</section>
+
+<section class="ui segment">
+    <h2 class="ui header">
+        All Known Stations in the Database:
+    </h2>
+    <table class="ui fixed table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Station Name</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+        </tr>
+        </thead>
+        <tbody>
+        #{list items:stations, as:'station'}
+        <tr>
+            <td>
+                ${station.id}
+            </td>
+            <td>
+                ${station.name}
+            </td>
+            <td>
+                ${station.lat}
+            </td>
+            <td>
+                ${station.lng}
+            </td>
+        </tr>
+
+        #{/list}
+        </tbody>
+    </table>
+</section>
+
+<section class="ui segment">
+    <h2 class="ui header">
+        All Known Members in the Database:
+    </h2>
+    <table class="ui fixed table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+        </thead>
+        <tbody>
+        #{list items:members, as:'member'}
+        <tr>
+            <td>
+                ${member.id}
+            </td>
+            <td>
+                ${member.firstname}
+            </td>
+            <td>
+                ${member.lastname}
+            </td>
+            <td>
+                ${member.email}
+            </td>
+            <td>
+                ${member.password}
             </td>
         </tr>
 
